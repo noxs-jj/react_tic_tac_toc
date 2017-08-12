@@ -1,0 +1,31 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+}
+
+.square {
+  border: 0px solid black;
+  background-color: #c19d9d;
+
+  width: 100px;
+  height: 100px;
+
+  padding: 0px;
+
+  margin: 1px;
+
+  display: inline-block;;
+}
+
+.btnPadding {
+  margin: 5px;
+}
+
+.h1char {
+  padding: 25px 0;
+}
+
+.boardWidth {
+  min-width: 350px;
+}
