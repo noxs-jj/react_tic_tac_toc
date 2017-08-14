@@ -11,4 +11,5 @@
     npm start
 
 Go to **http://localhost:3000**
-Example on **tictactoc.noxs.net**
+
+Example on **http://tictactoc.noxs.net**
