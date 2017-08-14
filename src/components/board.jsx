@@ -74,6 +74,16 @@ class Board extends Component {
     );
   };
 
+  resetCurrentGame(mode) {
+    this.setState({
+      board: Array(9).fill(null),
+      nextPlayer: 'X',
+      winner: null,
+      currentMode: mode,
+    });
+  }
+
+
   manageClick(caseId) {
     if (this.state.winner !== null) {
       return;
