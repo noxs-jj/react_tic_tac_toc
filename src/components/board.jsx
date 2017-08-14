@@ -26,6 +26,13 @@ class Board extends Component {
       });
     }
 
+    if (this.state.winner !== null) {
+        console.log(
+            this.state
+        );
+        console.log("this.props.mode: " + this.props.mode);
+        console.log("this.state.currentMode: " + this.state.currentMode);
+    }
     return (
       <div className="center text-center">
 
@@ -67,15 +74,6 @@ class Board extends Component {
     );
   };
 
-  resetCurrentGame(mode) {
-    this.setState({
-      board: Array(9).fill(null),
-      nextPlayer: 'X',
-      winner: null,
-      currentMode: mode,
-    });
-  }
-
   manageClick(caseId) {
     if (this.state.winner !== null) {
       return;
@@ -84,17 +82,13 @@ class Board extends Component {
 
     newBoard[caseId] = this.state.nextPlayer;
     if (vsPlayer.isSignWin(newBoard, this.state.nextPlayer) === true ) {
-      this.setState({winner: this.state.nextPlayer});
+      this.setState({winner: this.state.nextPlayer, board: newBoard});
     } else {
       this.setNextPlayer(this.state.nextPlayer);
-    }
-    this.setState({board: newBoard});
-
-    if (this.state.winner !== null) {
-      return;
-    }
-    if (this.props.mode === 'IA') {
-      this.iaPlay(newBoard.slice());
+      this.setState({board: newBoard});
+      if (this.props.mode === 'IA') {
+        this.iaPlay(newBoard.slice());
+      }
     }
   }
 
@@ -118,7 +112,7 @@ class Board extends Component {
   }
 
   isCasePlayable(caseId) {
-    if (this.state.board[caseId] === null || this.state.winner !== null) {
+    if (this.state.board[caseId] === null) {
       return true;
     }
     return false;
