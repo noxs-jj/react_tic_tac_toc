@@ -12,4 +12,4 @@
 
 Go to **http://localhost:3000**
 
-Example on **http://tictactoc.noxs.net/react_tic_tac_toc**
+Example on **http://reactictactoc.noxs.net/**
